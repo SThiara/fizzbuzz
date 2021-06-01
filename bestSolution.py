@@ -12,19 +12,16 @@ class Fizzy:
         output = num
       print(output)
 
-wordslist = []
-
 def fizzmaker():
+  wordslist = []
   check = input("Would you like to add some words and numbers to the game? Y for yes, N for no: ")
-  if check == "N" or check == "n":
-    return
-  num = input("What number would you like to add? ")
-  word = input("What word would you like to add? ")
-  wordslist.append([int(num), word])
-  fizzmaker()
+  while check == "Y" or check == "y":
+    num = input("What number would you like to add? ")
+    word = input("What word would you like to add? ")
+    wordslist.append([int(num), word])
+    check = input("Would you like to add some words and numbers to the game? Y for yes, N for no: ")
+  return Fizzy(wordslist)
 
-fizzmaker()
-
-fizzgame = Fizzy(wordslist)
+fizzgame = fizzmaker()
 
 fizzgame.playgame(40)
