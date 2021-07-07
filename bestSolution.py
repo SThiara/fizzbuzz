@@ -1,3 +1,5 @@
+import time
+
 class Fizzy:
   def __init__(self, words_list):
     self.words_list = words_list
@@ -11,6 +13,7 @@ class Fizzy:
       if output == "":
         output = num
       print(output)
+      time.sleep(0.25)
 
 def fizzmaker():
   wordslist = []
@@ -24,4 +27,11 @@ def fizzmaker():
 
 fizzgame = fizzmaker()
 
-fizzgame.playgame(40)
+game = "Y"
+
+while game == "Y" or game == "y":
+  num = input("What number will this game go up to?")
+  fizzgame.playgame(int(num))
+  game = input("Would you like to play again?")
+
+print("All done!")
